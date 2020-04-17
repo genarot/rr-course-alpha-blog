@@ -1,0 +1,14 @@
+<h1>Update a new Article</h1>
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being saved</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= render 'form', article: @article %>
+<div>
+<%= link_to 'Cancel and Back to articles listing', articles_path %>
+
+</div>
