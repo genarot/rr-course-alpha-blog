@@ -1,32 +1,20 @@
-<h1>Articles listing page</h1>
+<h1 class="text-center mt-4">Listing all Articles</h1>
 <% if @articles.empty? %>
-<h3>No articles saved!</h3>
+  <h3>No articles saved!</h3>
 <% else %>
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
+  <div class="container">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td>
-<!--          <a href="/articles/<%#= article.id %>/edit">Edit</a>-->
-<!--          <a href="/articles/<%#= article.id %>">Delete</a>-->
-          <%= link_to 'Show', article_path(article) %>
-          <%= link_to 'Edit', edit_article_path(article) %>
-          <%= link_to 'Delete', article, method: :delete, data: {confirm: "Are you sure?"} %>
-        </td>
-      </tr>
+      <div class="row justify-content-center">
+        <div class="col-10 mt-4">
+          <%= render :partial => 'article_card', :locals => {article: article} %>
+        </div>
+      </div>
+      <%#= link_to 'Show', article_path(article) %>
+      <%#= link_to 'Edit', edit_article_path(article) %>
+      <%#= link_to 'Delete', article, method: :delete, data: {confirm: "Are you sure?"} %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 <% end %>
-<div>
-  <%= link_to 'Create new article', new_article_path %>
+<div class="mb-3">
+  <%= link_to 'Create a new article', new_article_path %>
 </div>

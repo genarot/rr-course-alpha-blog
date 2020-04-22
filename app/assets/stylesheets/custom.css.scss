@@ -1,9 +1,50 @@
 @import "bootstrap/dist/css/bootstrap";
 
 .navbar {
-  background-color: #005775!important;
+  //background-color: #152D40!important;
+  background-color: black!important;
+}
+
+.nav-link {
+  color: white!important;
+}
+
+#logo {
+   float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
 }
 
 .navbar-brand {
   font-size: 3rem;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+.jumbotron {
+  //background-image: asset_url('writing.jpg');
+  background-image: asset_url('woman-writing.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 425px;
+}
+
+#sticky-footer {
+  flex-shrink: unset;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: #dcdcdc;
+}
+
+html,
+body {
+  height: 100%;
 }

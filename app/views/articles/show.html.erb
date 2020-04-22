@@ -1,7 +1,6 @@
-<h1>Showing article details</h1>
-<div>
-  <p><strong>Title:</strong> <%= @article.title %></p>
-  <p><strong>Description:</strong> <%= @article.description %></p>
+<div class="container">
+  <h2 class="text-center mt-4"><%= @article.title %></h2>
+  <%= render 'article_card', article: @article, is_show: true %>
 </div>
 <div>
   <%= link_to 'Edit', edit_article_path(@article) %>

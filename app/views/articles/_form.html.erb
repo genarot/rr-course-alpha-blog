@@ -1,23 +1,29 @@
 <%#= form_with scope: :article, url: articles_path, local: true do |f| %>
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
 
-<%= form_with(model: @article, local: true) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'shared/errors' %>
+      <%= form_with(model: @article, class: "shadow p-3 mb-2 bg-info rounded", local: true) do |f| %>
+        <div class="form-group row">
+          <%= f.label :title, class: "col-2 col-form-label text-light", placeholder: "Title of article" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control shadow rounded" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :description, class: "col-2 col-from-label text-light" %>
+          <div class="col-10">
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded ", placeholder: "Description of article" %>
+          </div>
+        </div>
+        <div class="form-group row justify-content-center">
+          <%= f.submit class: "btn btn-outline-light btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to '[ Cancel and Back to articles listing ]', articles_path, class: "text-info" %>
   </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+</div>
