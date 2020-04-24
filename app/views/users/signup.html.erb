@@ -1,0 +1,11 @@
+<%#= form_with scope: :article, url: articles_path, local: true do |f| %>
+<div class="container">
+  <h1 class="text-center">Sign up for Alpha Blog</h1>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render :partial => 'shared/errors', :locals => {model: @user}%>
+      <%= render 'form' %>
+    </div>
+    <%= link_to "[Cancel and return to articles listing]", articles_path, class: "text-info" %>
+  </div>
+</div>

@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   get 'about', to: 'pages#about'
 
+  get 'signup', to: 'users#new'
+
+  # post 'users', to: 'users#new'
+  # resources :users, only: [ :create]
+  resources :users, except: [:new]
   # resources :articles, onqly: [:show, :index, :new, :create, :edit, :update, :destroy]
   # the same as the above
   resources :articles
