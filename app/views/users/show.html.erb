@@ -1,0 +1,12 @@
+<%#= form_with scope: :article, url: articles_path, local: true do |f| %>
+<div class="container">
+  <h1 class="text-center"><%= @user.username %>'s profile</h1>
+  <%= gravatar_for @user, :size => 250 %>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h4 class="text-center">These are my articles</h4>
+      <%= render 'articles/articles'%>
+    </div>
+    <%= link_to "[Cancel and return to articles listing]", articles_path, class: "text-info" %>
+  </div>
+</div>
