@@ -1,1 +1,8 @@
 <h2 class="text-center mt-4">Alpha Bloggers</h2>
+<div class="row justify-content-center">
+  <div class="col-9 mt-4">
+    <% @users.each do |user| %>
+      <%= render 'user_card', user: user %>
+    <% end %>
+  </div>
+</div>

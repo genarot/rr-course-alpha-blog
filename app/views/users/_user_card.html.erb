@@ -1,12 +1,24 @@
-<div class="card">
-  <%= gravatar_for({}) %>
-  <img src="..." class="card-img-top" alt="...">
+<div class="card mb-5 user-card">
+  <%= gravatar_for(user, size: 150) %>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <h5 class="card-title text-center">
+      <b>Username:</b>
+      <%= user.username %></h5>
+    <div class="card-text text-center">
+      <div>
+        <b>Email:</b> <%= user.email %>
+      </div>
+      <div>
+        <%= pluralize(user.articles.count, "article") %>
+      </div>
+    </div>
   </div>
-
+  <div class="col-10 mb-2">
+    <%#= link_to "View profile", user_path(user), class: "btn btn-outline-primary btn-lg" %>
+    <%= link_to "View profile", user, class: "btn btn-outline-primary btn-lg" %>
+    <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-success btn-lg" %>
+  </div>
   <div class="card-footer">
-    <small class="text-muted">Last updated 3 mins ago</small>
+    <small class="text-muted">Joined <%= time_ago_in_words(user.created_at) %> ago</small>
   </div>
 </div>
