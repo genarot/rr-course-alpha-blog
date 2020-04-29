@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   # resources :articles, onqly: [:show, :index, :new, :create, :edit, :update, :destroy]
   # the same as the above
   resources :articles
+
+  get 'login', to: 'sessions#new'
+
+  post 'login', to: 'sessions#create'
+
+  delete 'logout', to: 'sessions#destroy'
 end

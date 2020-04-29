@@ -10,4 +10,5 @@ module ApplicationHelper
 
     image_tag(gravatar_url, :alt => "#{user.username} profile image", :class => "rounded shadow mx-auto d-block mt-2")
   end
+
 end

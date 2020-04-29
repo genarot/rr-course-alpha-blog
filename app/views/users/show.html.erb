@@ -3,12 +3,15 @@
   <h1 class="text-center"><%= @user.username %>'s profile</h1>
   <%= gravatar_for @user, :size => 250 %>
   <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-10 text-center">
+      <% if is_owner?(@user.id) %>
+        <%= link_to "Edit my Profile", user_path(@user), class: "btn mt-4 mb-2 btn-lg btn-outline-info" %>
+      <% end %>
+      <h3 class="text-center">Articles</h3>
       <div class="flickr_pagination mb-4">
         <%= will_paginate @articles, container: false %>
       </div>
-      <h4 class="text-center">These are my articles</h4>
-      <%= render 'articles/articles'%>
+      <%= render 'articles/articles' %>
     </div>
     <%= link_to "[Cancel and return to articles listing]", articles_path, class: "text-info" %>
     <div class="flickr_pagination mt-6 mb-4">

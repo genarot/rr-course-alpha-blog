@@ -13,10 +13,12 @@
       <div class="card-text text-left"><%= simple_format(article.description) %></div>
     <% end %>
     <% if !defined?(is_show) %>
-      <%= link_to "View", article_path(article), class: "btn btn-outline-success" %>
+      <%= link_to "View", article_path(article), class: "btn btn-lg btn-outline-success" %>
     <% end %>
-    <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-info" %>
-    <%= link_to "Delete", article_path(article), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% if is_owner?(article.user_id) %>
+      <%= link_to "Edit", edit_article_path(article), class: "btn btn-lg btn-outline-info" %>
+      <%= link_to "Delete", article_path(article), class: "btn btn-lg btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
   </div>
   <div class="card-footer text-muted">
     <small>Created <%= time_ago_in_words(article.created_at) %> ago,
