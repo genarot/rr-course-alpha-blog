@@ -18,6 +18,9 @@
     <% if is_owner?(user.id) %>
       <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-lg btn-outline-success btn-lg" %>
     <% end %>
+    <% if logged_in? && current_user.admin? %>
+      <%= link_to "Destroy profile", user_path(user), class: "btn btn-lg btn-outline-danger btn-lg", method: :delete, data: { confirm: "Are you sure, you want to delete the user and all their articles?"} %>
+    <% end %>
   </div>
   <div class="card-footer">
     <small class="text-muted">Joined <%= time_ago_in_words(user.created_at) %> ago</small>

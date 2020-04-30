@@ -15,7 +15,7 @@
     <% if !defined?(is_show) %>
       <%= link_to "View", article_path(article), class: "btn btn-lg btn-outline-success" %>
     <% end %>
-    <% if is_owner?(article.user_id) %>
+    <% if is_owner?(article.user_id) || current_user.admin? %>
       <%= link_to "Edit", edit_article_path(article), class: "btn btn-lg btn-outline-info" %>
       <%= link_to "Delete", article_path(article), class: "btn btn-lg btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
     <% end %>
