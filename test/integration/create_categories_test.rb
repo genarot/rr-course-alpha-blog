@@ -29,10 +29,11 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
       # follow_redirect!
     end
 
-    p response
+    # p response
     assert_template 'categories/new'
     assert_select 'div#error-list'
-    assert_select 'h4#alert-heading'
+    assert_select 'h4.alert-heading'
+    assert_match "The following errors prevented the #{Category.name} from being saved", response.body
     assert_select 'div.alert'
   end
 end
