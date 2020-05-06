@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # the same as the above
   resources :articles
 
+  resources :categories, except: [:delete, :destroy]
+
   get 'login', to: 'sessions#new'
 
   post 'login', to: 'sessions#create'

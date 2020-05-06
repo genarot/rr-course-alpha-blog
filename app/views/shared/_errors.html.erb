@@ -1,5 +1,5 @@
 <% if model.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show"  id="error-list" role="alert">
     <h4 class="alert-heading">The following errors prevented the <%= model.class %> from being saved</h4>
     <ul>
       <% model.errors.full_messages.each do |msg| %>
